@@ -32,7 +32,7 @@ RevEng_PAJ7620 sensor = RevEng_PAJ7620();
 
 
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(9600);
   Serial.println("PAJ7620 sensor demo: Recognizing all 9 gestures.");
   
   //=========Gesture sensor init============
@@ -75,21 +75,21 @@ void loop() {
     {
       case GES_FORWARD:
         {
-          Serial.print("GES_FORWARD");
+          Serial.println("Forwards");
           run_forward_animation();
           break;
         }
   
       case GES_BACKWARD:
         {
-          Serial.print("GES_BACKWARD");
+          Serial.println("Backwards");
           run_backward_animation();
           break;
         }
   
       case GES_LEFT:
         {
-          Serial.print("GES_LEFT");
+          Serial.println("Left");
           run_right_animation();
           Keyboard.write(KEY_RIGHT_ARROW);
           break;
@@ -97,7 +97,7 @@ void loop() {
   
       case GES_RIGHT:
         {
-          Serial.print("GES_RIGHT");
+          Serial.println("Right");
           run_left_animation();
           Keyboard.write(KEY_LEFT_ARROW);
           break;
@@ -105,7 +105,7 @@ void loop() {
   
       case GES_UP:
         {
-          Serial.print("GES_UP");
+          Serial.println("SelectRobotScrollDown");
           Keyboard.write(KEY_UP_ARROW);
           Mouse.move(0, 0, WHEEL_INCREMENT);
           run_up_animation();
@@ -114,7 +114,7 @@ void loop() {
   
       case GES_DOWN:
         {
-          Serial.print("GES_DOWN");
+          Serial.println("SelectRobotScrollUp");
           Keyboard.write(KEY_DOWN_ARROW);
           Mouse.move(0, 0, -WHEEL_INCREMENT);
           run_down_animation();
@@ -123,7 +123,7 @@ void loop() {
   
       case GES_CLOCKWISE:
         {
-          Serial.print("GES_CLOCKWISE");
+          Serial.println("TurnClockwise");
           switch_relay_on();
           run_clockwise_animation();
           run_clockwise_animation();
@@ -132,7 +132,7 @@ void loop() {
   
       case GES_ANTICLOCKWISE:
         {
-          Serial.print("GES_ANTICLOCKWISE");
+          Serial.println("TurnCounterClockwise");
           switch_relay_off();
           run_anticlockwise_animation();
           run_anticlockwise_animation();
@@ -141,7 +141,7 @@ void loop() {
   
       case GES_WAVE:
         {
-          Serial.print("GES_WAVE");
+          Serial.println("Quit");
           run_wave_animation();
           break;
         }
@@ -152,11 +152,12 @@ void loop() {
         }
     }
   
-    if( gesture != GES_NONE )
-    {
-      Serial.print(", Code: ");
-      Serial.println(gesture);
-    }
+//    if( gesture != GES_NONE )
+//    {
+//      Serial.println("Clear");
+//      Serial.print(", Code: ");
+//      Serial.println(gesture);
+//    }
   
     delay(1000 / UPDATES_PER_SECOND);
     FastLED.show();
