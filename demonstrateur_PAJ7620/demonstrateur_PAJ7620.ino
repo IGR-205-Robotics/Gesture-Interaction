@@ -91,7 +91,7 @@ void loop() {
         {
           Serial.println("Left");
           run_right_animation();
-          Keyboard.write(KEY_RIGHT_ARROW);
+//          Keyboard.write(KEY_RIGHT_ARROW);
           break;
         }
   
@@ -99,15 +99,15 @@ void loop() {
         {
           Serial.println("Right");
           run_left_animation();
-          Keyboard.write(KEY_LEFT_ARROW);
+//          Keyboard.write(KEY_LEFT_ARROW);
           break;
         }
   
       case GES_UP:
         {
           Serial.println("SelectRobotScrollDown");
-          Keyboard.write(KEY_UP_ARROW);
-          Mouse.move(0, 0, WHEEL_INCREMENT);
+//          Keyboard.write(KEY_UP_ARROW);
+//          Mouse.move(0, 0, WHEEL_INCREMENT);
           run_up_animation();
           break;
         }
@@ -115,8 +115,8 @@ void loop() {
       case GES_DOWN:
         {
           Serial.println("SelectRobotScrollUp");
-          Keyboard.write(KEY_DOWN_ARROW);
-          Mouse.move(0, 0, -WHEEL_INCREMENT);
+//          Keyboard.write(KEY_DOWN_ARROW);
+//          Mouse.move(0, 0, -WHEEL_INCREMENT);
           run_down_animation();
           break;
         }
